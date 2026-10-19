@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spatial 3D Gesture Studio</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- 3D Canvas Viewport -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Top Futuristic Bar -->
+    <header class="hud-header">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span class="logo-title">SPATIAL 3D GESTURE STUDIO</span>
+        <span class="badge">PROD WEB-GL</span>
+      </div>
+      <div class="hud-stats">
+        <span id="fps-counter">FPS: 60</span>
+        <span id="active-mesh-name">SELECTED: NEON CUBE</span>
+      </div>
+    </header>
+
+    <!-- Picture in Picture Webcam HUD -->
+    <div class="pip-container">
+      <video id="webcam" autoplay playsinline muted></video>
+      <canvas id="pip-canvas"></canvas>
+      <div class="pip-overlay">
+        <span class="pip-status-dot"></span>
+        <span id="gesture-label">DETECTING HANDS...</span>
+      </div>
+    </div>
+
+    <!-- Controls Legend Drawer -->
+    <div class="controls-card">
+      <h3>🎮 GESTURE CONTROLS</h3>
+      <ul>
+        <li><span class="icon">👌</span> <strong>Pinch:</strong> Grab & Move 3D Object in X, Y, Z</li>
+        <li><span class="icon">✊</span> <strong>Fist:</strong> Record Motion Keyframes</li>
+        <li><span class="icon">✋</span> <strong>Open Palm:</strong> Stop & Orbit Camera</li>
+        <li><span class="icon">✌️</span> <strong>Peace Sign:</strong> Switch 3D Object</li>
+        <li><span class="icon">👐</span> <strong>Two Hands:</strong> Zoom Camera</li>
+      </ul>
+      <div class="status-indicator">
+        <span id="rec-dot" class="rec-dot"></span>
+        <span id="rec-status">STANDBY</span>
+      </div>
+    </div>
+
+    <!-- Start Overlay if Camera Permission Needed -->
+    <div id="start-modal" class="modal-overlay">
+      <div class="modal-card">
+        <h1>SPATIAL GESTURE STUDIO</h1>
+        <p>Control 3D space, manipulate objects, and record 3D animations using only your hands via real-time computer vision.</p>
+        <button id="start-btn" class="glow-button">LAUNCH CAMERA & STUDIO</button>
+        <span class="privacy-note">🔒 Camera feed stays entirely on your device (Client-side WebAssembly).</span>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
